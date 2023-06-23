@@ -73,7 +73,7 @@ def summarise(data, query):
     text_splitter = CharacterTextSplitter(separator="\n", chunk_size=3000, chunk_overlap=200, length_function=len)
     text = text_splitter.split_documents(data)    
 
-    llm = OpenAI(model_name="gpt-3.5-turbo", temperature=.7)
+    llm = OpenAI(model_name="gpt-4-0613", temperature=.7)
     template = """
     {text}
     You are a world class journalist, and you will try to summarise the text above in order to create a twitter thread about {query}
@@ -84,6 +84,35 @@ def summarise(data, query):
     4/ The content needs to be viral, and get at least 1000 likes
     5/ The content needs to be written in a way that is easy to read and understand
     6/ The content needs to give audience actionable advice & insights too
+    7/ The content must not be overly technical; it should be written in a way that the average person can understand.
+
+8/ Use a friendly, conversational tone that engages readers.
+
+9/ Always cite your sources or data accurately to ensure credibility.
+
+10/ Balance your content with both facts and personal perspectives to make it relatable.
+
+11/ Use compelling visuals (photos, infographics, charts, etc.) when possible to enhance understanding.
+
+12/ Always proofread your content to ensure there are no grammatical or spelling errors.
+
+13/ The content should be topical, timely, and relevant to current events or trends.
+
+14/ Make sure your content is shareable and has the potential to generate discussions and debates.
+
+15/ Try to include quotes from industry experts or firsthand accounts when possible to add depth to your content.
+
+16/ Content should not be too dense; ensure it is digestible with clear sections and headers.
+
+17/ Keep the content objective and unbiased, providing different viewpoints if applicable.
+
+18/ Make sure to include a call to action at the end of the content to encourage engagement from your audience.
+
+19/ Use catchy and effective headlines and subheadings to attract attention.
+
+20/ Always end your content with a conclusion or summary to reinforce the key points.
+
+21/ The content should not be plagiarized from any other sources, and must be original in thought and structure.
 
     SUMMARY:
     """
